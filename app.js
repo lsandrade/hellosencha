@@ -22,6 +22,10 @@ Ext.application({
 						renderTo: 'botao01'
 					});
 				 //Ext.Viewport.add(botao);
+
+				 var violao = Ext.create('Violao');
+				 violao.tocar();
+				 violao.afinar();
 			}
 
 		});
