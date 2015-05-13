@@ -1,3 +1,4 @@
+//CARREGAMENTO DINAMICO SÓ FUNCIONA COM APACHE
 Ext.Loader.setConfig({
 	enabled: true
 });
