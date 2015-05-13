@@ -1,10 +1,13 @@
 //criando uma classe (EXT)
 //parametros(Nome, array de atributos metodos etc, callback)
 		Ext.define('User',{ 
-			nome: '', //atributo nome
-			senha: '', //atributo senha
+			//Condig: cria getters e setter sozinho. mt interessante!!
+			config: {
+				nome: '',
+				senha: '',
+			},
 
-			constructor: function(options ){ //modificar o construtor
+			constructor: function(options){ //modificar o construtor
 				Ext.apply(this, options || {});
 				console.log('construtor foi chamado.');
 			},
