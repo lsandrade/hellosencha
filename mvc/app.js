@@ -30,6 +30,22 @@ Ext.application({
 				console.log(errors.isValid());
 				console.log(errors.items);
 				console.log(errors.getByField('nome'));
+
+				//proxy teste POST/salvar informação
+				/*var contato = Ext.create('model.Contato',{
+					nome: 'Luan',
+					email: 'luan@hotmail.com'
+				});
+				contato.save();*/
+				Contato.load(1,{
+					success: function(contato){
+						console.log('Nome do contato eh: '+contato.get('nome')); //get. consultar valor
+						//contato.set('nome', 'Xunda'); // requisicao PUT. atualizar
+						//contato.save();
+						contato.destroy(); //requisição DELETE
+					}
+				});
+
 			}
 
 		});

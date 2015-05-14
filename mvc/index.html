@@ -5,50 +5,11 @@
 		<script type="text/javascript" src="../sencha-touch-all-debug.js"></script>
 		<!--<script type="text/javascript" src="../sencha-touch-all.js"></script>-->
 		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="Contato.js"></script>
 		
 	</head>
 	<body>
-		<script type="text/javascript">
-	/*Ext.application({
-			name: 'Sencha',
-
-			launch: function(){
-					Ext.define('User', {
-			    extend: 'Ext.data.Model',
-
-			    config: {
-			        fields: [
-			            ['name','age','gender']
-			        ],
-
-			        validations: [
-			            { type: 'presence',  field: 'name' },
-			            { type: 'length',    field: 'name', min: 5 },
-			            { type: 'format',    field: 'age', matcher: /\d+/ },
-			            { type: 'inclusion', field: 'gender', list: ['male', 'female'] },
-			            { type: 'exclusion', field: 'name', list: ['admin'] }
-			        ],
-
-			       
-			    }
-			});
-					// now lets try to create a new user with as many validation errors as we can
-var newUser = Ext.create('User', {
-    name: 'admin',
-    age: 'twenty-nine',
-    gender: 'not a valid gender'
-});
-
-// run some validation on the new user we just created
-var errors = newUser.validate();
-
-console.log('Is User valid?', errors.isValid()); // returns 'false' as there were validation errors
-console.log('All Errors:', errors.items); // returns the array of all errors found on this model instance
-
-console.log('Age Errors:', errors.getByField('age')); // returns the errors for the age field
-		}
-	});
-		</script>
+	
 	</body>
 	
 </html>
