@@ -81,6 +81,26 @@ Ext.application({
 				}
 			}
 			);
+
+		//SESSION STORE
+		var sessionstore = Ext.create('Ext.data.Store',{
+			model: 'Coisa'
+		});
+		/*sessionstore.load();
+		sessionstore.add({descricao:'gravar aula 18'});
+		sessionstore.add({descricao:'gravar aula 19'});
+		sessionstore.add({descricao:'gravar aula 20'});
+		sessionstore.sync();*/
+		
+		sessionstore.load(
+			function(records, op, success){
+				var coisa, i;
+				for(i=0;i<records.length;i++){
+					coisa= records[i].data;
+					console.log(coisa.id +" "+ coisa.descricao);
+				}
+			}
+			);
 		
 	}
 });
