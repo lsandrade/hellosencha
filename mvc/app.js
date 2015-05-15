@@ -8,7 +8,7 @@ Ext.application({
 
 	launch: function(){
 		//Criação de um funcionário do Model
-		var funcionario = Ext.create('model.Funcionario',{
+		/*var funcionario = Ext.create('model.Funcionario',{
 			nome: 'Luan',
 			idade: 22,
 			salario: 1200.99,
@@ -30,7 +30,7 @@ Ext.application({
 		var errors = funcionario2.validate();
 		console.log(errors.isValid());
 		console.log(errors.items);
-		console.log(errors.getByField('nome'));
+		console.log(errors.getByField('nome'));*/
 
 		//proxy teste POST/salvar informação
 		/*var contato = Ext.create('model.Contato',{
@@ -46,7 +46,7 @@ Ext.application({
 				contato.destroy(); //requisição DELETE
 			}
 		});*/
-		Contato.load(1,{
+		/*Contato.load(1,{
 			success: function(contato){
 				console.log('Nome do contato eh: '+contato.get('nome')); //get. consultar valor
 				var telefones = contato.telefones();// contato.telefoneS pq é hasMany
@@ -60,6 +60,27 @@ Ext.application({
 				console.log('Endereco: '+ end.get('logradouro') + end.get('numero'))
 
 			}
+		});*/
+
+
+		//LocalStorage
+		var store = Ext.create('Ext.data.Store',{
+			model: 'Lista'
 		});
+		//store.load();
+		//store.add({descricao:'gravar aula 16'});
+		//store.add({descricao:'gravar aula 17'});
+		//store.add({descricao:'gravar aula 18'});
+		//store.sync();
+		store.load(
+			function(records, op, success){
+				var lista, i;
+				for(i=0;i<records.length;i++){
+					lista= records[i].data;
+					console.log(lista.id +" "+ lista.descricao);
+				}
+			}
+			);
+		
 	}
 });

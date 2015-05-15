@@ -14,7 +14,7 @@ Ext.define('Contato',{
 			format: 'json'
 		},
 		hasMany: {model: 'Telefone', foreignKey:'contato_id'}, //se usar o nome contato_id não precisa declarar a FK
-		hasOne: {model: 'Endereco', foreignKey:'contato_id'}
+		hasOne: {model: 'Endereco', foreignKey:'contato_id'} //tem UM endereço
 	}
 
 });
