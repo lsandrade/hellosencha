@@ -4,48 +4,62 @@ Ext.Loader.setConfig({
 });
 
 Ext.application({
-			name: 'Sencha',
+	name: 'Sencha',
 
-			launch: function(){
-				//Criação de um funcionário do Model
-				var funcionario = Ext.create('model.Funcionario',{
-					nome: 'Luan',
-					idade: 22,
-					salario: 1200.99,
-					ativo: true,
-					nasc: '26/05/1992',
-					usuario: 'luan'
-				});
-				
-				funcionario.set('nome','Pablo'); //setando nome
-				console.log(funcionario.get('nome'));
+	launch: function(){
+		//Criação de um funcionário do Model
+		var funcionario = Ext.create('model.Funcionario',{
+			nome: 'Luan',
+			idade: 22,
+			salario: 1200.99,
+			ativo: true,
+			nasc: '26/05/1992',
+			usuario: 'luan'
+		});
+					
+		funcionario.set('nome','Pablo'); //setando nome
+		console.log(funcionario.get('nome'));
 
-				var funcionario2= Ext.create('model.Funcionario',{
-					nome:'Luan',
-					genero: 'M',
-					usuario: 'luan',
-					idade: 25
-				});
-				var errors = funcionario2.validate();
-				console.log(errors.isValid());
-				console.log(errors.items);
-				console.log(errors.getByField('nome'));
+		var funcionario2= Ext.create('model.Funcionario',{
+			nome:'Luan',
+			genero: 'M',
+			usuario: 'luan',
+			idade: 25
+		});
 
-				//proxy teste POST/salvar informação
-				/*var contato = Ext.create('model.Contato',{
-					nome: 'Luan',
-					email: 'luan@hotmail.com'
+		var errors = funcionario2.validate();
+		console.log(errors.isValid());
+		console.log(errors.items);
+		console.log(errors.getByField('nome'));
+
+		//proxy teste POST/salvar informação
+		/*var contato = Ext.create('model.Contato',{
+			nome: 'Luan',
+			email: 'luan@hotmail.com'
+		});
+		contato.save();*/
+		/*Contato.load(1,{
+			success: function(contato){
+				console.log('Nome do contato eh: '+contato.get('nome')); //get. consultar valor
+				//contato.set('nome', 'Xunda'); // requisicao PUT. atualizar
+				//contato.save();
+				contato.destroy(); //requisição DELETE
+			}
+		});*/
+		Contato.load(1,{
+			success: function(contato){
+				console.log('Nome do contato eh: '+contato.get('nome')); //get. consultar valor
+				var telefones = contato.telefones();// contato.telefoneS pq é hasMany
+				telefones.each(function (tel){
+					console.log(tel.get('ddd')+' '+tel.get('numero'));
+
+					var c = tel.getContato();
+					console.log('Numero pertence a '+ c.get('nome'));
 				});
-				contato.save();*/
-				Contato.load(1,{
-					success: function(contato){
-						console.log('Nome do contato eh: '+contato.get('nome')); //get. consultar valor
-						//contato.set('nome', 'Xunda'); // requisicao PUT. atualizar
-						//contato.save();
-						contato.destroy(); //requisição DELETE
-					}
-				});
+				var end = contato.getEndereco(); //endereco sem plural pq é hasOne
+				console.log('Endereco: '+ end.get('logradouro') + end.get('numero'))
 
 			}
-
 		});
+	}
+});

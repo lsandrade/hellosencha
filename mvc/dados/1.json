@@ -1,0 +1,9 @@
+{
+	'id':1,
+	'nome': 'Luan',
+	'sobrenome': 'Andrade',
+	'telefones': [
+		{'id':12, 'ddd': 24, 'numero': 33564844},{'id':13, 'ddd': 24, 'numero': 999293940}
+	],
+	'endereco': {'id':14, 'logradouro':'travessa 16', 'numero':9, complemento:'fundos casa 4'}
+}
