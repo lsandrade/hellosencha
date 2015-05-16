@@ -56585,7 +56585,7 @@ Ext.define('Ext.data.identifier.Simple', {
     },
 
     config: {
-        prefix: '' //***
+        prefix: 'ext-record-'
     },
 
     constructor: function(config) {

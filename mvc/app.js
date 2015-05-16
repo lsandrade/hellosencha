@@ -100,7 +100,13 @@ Ext.application({
 					console.log(coisa.id +" "+ coisa.descricao);
 				}
 			}
-			);
+		);
 		
+		//AJAX STORAGE
+		var ajaxstore = Ext.create('Ext.data.Store', {
+			model: 'Contato'
+		});
+		ajaxstore.load();
+		console.log(ajaxstore);
 	}
 });
