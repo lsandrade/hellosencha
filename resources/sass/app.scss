@@ -151,7 +151,3 @@ $include-default-icons: false;
   padding: 20px;
   font-size: 80%;
 }
-
-// This is different in 2.4.x. In earlier versions it was pictos-iconmask as you've indicated you tried in the question. 
-
-@include icon('browser');
